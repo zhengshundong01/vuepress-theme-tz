@@ -24,7 +24,7 @@
 
 增加10种主页锚点样式
 
-![anchor-doc](.\example\.vuepress\public\picture\anchor-doc.png)
+![anchor-doc](example/.vuepress/public/picture/anchor-doc.png)
 
 **使用方式**
 
