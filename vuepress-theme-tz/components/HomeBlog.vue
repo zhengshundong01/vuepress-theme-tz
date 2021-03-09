@@ -22,7 +22,16 @@
             {{ domainEnDesc }}
           </p>
         </ModuleTransition>
-        <a href="#anchor" class="scroll-down bounce-enter-active down-arrow"></a>
+        <section :class="anchorClasses">
+          <a href="#anchor">
+            <span></span>
+            <template v-if="$themeConfig.anchorType == 7">
+              <span></span>
+              <span></span>
+            </template>
+            Scroll
+          </a>
+        </section>
       </div>
     </div>
 
@@ -134,6 +143,13 @@ export default {
         "zh": "愿你保持初心和善良,笑里尽是温暖与坦荡。",
         "en": "May you keep your original heart and kindness, and smile with warmth and magnanimity."
       }
+    },
+    anchorClasses () {
+      let index = this.$themeConfig.anchorType || 5;
+      return [
+        'anchor',
+        `anchor-animation-${index}`
+      ]
     }
   },
   mounted () {
@@ -184,6 +200,10 @@ export default {
 }
 </script>
 
+<style>
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+</style>
+<style src="../styles/animation.styl" lang="stylus"></style>
 <style lang="stylus">
 .motto {
   text-align: center;
@@ -394,67 +414,67 @@ export default {
   }
 }
 
-.scroll-down {
-  display: block;
-  margin: 12rem auto 0 auto;
-  bottom: 20%;
-  width: 34px;
-  height: 34px;
-  font-size: 34px;
-  text-align: center;
-}
+// .scroll-down {
+//   display: block;
+//   margin: 12rem auto 0 auto;
+//   bottom: 20%;
+//   width: 34px;
+//   height: 34px;
+//   font-size: 34px;
+//   text-align: center;
+// }
 
-.bounce-enter-active {
-  animation: bounce-in 5s 3s infinite;
-}
+// .bounce-enter-active {
+//   animation: bounce-in 5s 3s infinite;
+// }
 
-@keyframes bounce-in {
-  0% {
-    transform: translateY(0);
-  }
+// @keyframes bounce-in {
+//   0% {
+//     transform: translateY(0);
+//   }
 
-  20% {
-    transform: translateY(0);
-  }
+//   20% {
+//     transform: translateY(0);
+//   }
 
-  50% {
-    transform: translateY(-20px);
-  }
+//   50% {
+//     transform: translateY(-20px);
+//   }
 
-  80% {
-    transform: translateY(0);
-  }
+//   80% {
+//     transform: translateY(0);
+//   }
 
-  100% {
-    transform: translateY(0);
-  }
-}
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
 
-.down-arrow {
-  width: 20px;
-  height: 20px;
-}
+// .down-arrow {
+//   width: 20px;
+//   height: 20px;
+// }
 
-.down-arrow:before {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-right: 3px solid #ffffff;
-  border-top: 3px solid #ffffff;
-  transform: rotate(135deg);
-  position: absolute;
-  bottom: 10px;
-}
+// .down-arrow:before {
+//   content: '';
+//   display: block;
+//   width: 20px;
+//   height: 20px;
+//   border-right: 3px solid #ffffff;
+//   border-top: 3px solid #ffffff;
+//   transform: rotate(135deg);
+//   position: absolute;
+//   bottom: 10px;
+// }
 
-.down-arrow:after {
-  content: '';
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-right: 3px solid #ffffff;
-  border-top: 3px solid #ffffff;
-  -webkit-transform: rotate(135deg); /* 箭头方向可以自由切换角度 */
-  transform: rotate(135deg);
-}
+// .down-arrow:after {
+//   content: '';
+//   display: block;
+//   width: 20px;
+//   height: 20px;
+//   border-right: 3px solid #ffffff;
+//   border-top: 3px solid #ffffff;
+//   -webkit-transform: rotate(135deg); /* 箭头方向可以自由切换角度 */
+//   transform: rotate(135deg);
+// }
 </style>

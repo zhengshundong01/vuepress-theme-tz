@@ -123,6 +123,7 @@ module.exports = {
       '/picture/wallhaven-q66z35.jpg',
       '/picture/wallhaven-rddrw7.jpg'
     ],
+    anchorType: 7
   },
   plugins: [
     ["@vuepress-reco/vuepress-plugin-screenfull"],
