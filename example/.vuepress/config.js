@@ -187,7 +187,7 @@ module.exports = {
           auto: "https://music.163.com/#/playlist?id=6590270169"
         },
         aplayer: {
-          autoplay: true,
+          autoplay: false,
           lrcType: 0,
           additionAudio: [{
               name: '我们活着',

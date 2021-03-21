@@ -1,0 +1,22 @@
+{
+  "name": "@vuepress-tz/vuepress-plugin-loading-page",
+  "version": "1.0.0",
+  "description": "Loading page plugin for vuepress-theme-tz or other vuepress theme",
+  "keywords": [
+    "vuepress-theme-tz",
+    "loading-page",
+    "vuepress"
+  ],
+  "homepage": "https://vuepress-theme-tz.tzluan.com",
+  "bugs": {
+    "url": "https://github.com/vuepress-tz/vuepress-theme-tz/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress-tz/vuepress-theme-tz.git"
+  },
+  "license": "MIT",
+  "author": "tz_luan <tzluan@outlook.com>",
+  "main": "index.js",
+  "gitHead": "c3a1db8487bece9341b6269a0f6ebf910cd5462a"
+}

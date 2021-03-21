@@ -32,7 +32,7 @@
 // config.js
 ...
 themeConfig: {
-    anchorType: 7 // 这里的数字对应图上的数字
+    anchorType: 7 // 这里的数字对应图上的数字，默认值5
 }
 ...
 ```
