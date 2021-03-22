@@ -1,35 +1,41 @@
 <template>
-  <div class="loading-page-3 hunter panel">
-    <div class="circle c1"></div>
-    <div class="circle c2"></div>
-    <div class="circle c3"></div>
-    <div class="circle c4"></div>
-    <div class="shape_group">
-      <div class="shape s1"></div>
-      <div class="shape s2"></div>
-      <div class="shape s3"></div>
-      <div class="shape s4"></div>
-      <div class="shape s5"></div>
-      <div class="shape s6"></div>
+  <div class="loading-page-3">
+    <div class="loading-page-warpper">
+      <div class="loading-page-content hunter">
+        <div class="circle c1"></div>
+        <div class="circle c2"></div>
+        <div class="circle c3"></div>
+        <div class="circle c4"></div>
+        <div class="shape_group">
+          <div class="shape s1"></div>
+          <div class="shape s2"></div>
+          <div class="shape s3"></div>
+          <div class="shape s4"></div>
+          <div class="shape s5"></div>
+          <div class="shape s6"></div>
+        </div>
+        <div class="line_group g1">
+          <div class="line l1"></div>
+          <div class="line l2"></div>
+          <div class="line l3"></div>
+          <div class="line l4"></div>
+        </div>
+        <div class="line_group g2">
+          <div class="line l1"></div>
+          <div class="line l2"></div>
+          <div class="line l3"></div>
+          <div class="line l4"></div>
+        </div>
+        <div class="line_group g3">
+          <div class="line l1"></div>
+          <div class="line l2"></div>
+          <div class="line l3"></div>
+          <div class="line l4"></div>
+        </div>
+      </div>
     </div>
-    <div class="line_group g1">
-      <div class="line l1"></div>
-      <div class="line l2"></div>
-      <div class="line l3"></div>
-      <div class="line l4"></div>
-    </div>
-    <div class="line_group g2">
-      <div class="line l1"></div>
-      <div class="line l2"></div>
-      <div class="line l3"></div>
-      <div class="line l4"></div>
-    </div>
-    <div class="line_group g3">
-      <div class="line l1"></div>
-      <div class="line l2"></div>
-      <div class="line l3"></div>
-      <div class="line l4"></div>
-    </div>
+    <h3 class="loading-text" v-if="$frontmatter.home">6666{{$site.title || $localeConfig.title}}</h3>
+    <p class="loading-text" v-if="$frontmatter.home">{{$site.description || $localeConfig.description}}</p>
   </div>
 </template>
 <script>
@@ -43,7 +49,7 @@ export default {
   methods: {
     // page3
     changeClass () {
-      const container = document.querySelector('.loading-page-3')
+      const container = document.querySelector('.loading-page-content')
       if (!container) {
         return
       }
@@ -61,7 +67,27 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-$color-background: #fff, $color-triangle: #363636, .loading-page-3 {
+$color-background = #fff;
+$color-triangle = #363636;
+
+.loading-page-3 {
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loading-page-warpper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-page-content {
   position: relative;
   display: flex;
   align-items: center;

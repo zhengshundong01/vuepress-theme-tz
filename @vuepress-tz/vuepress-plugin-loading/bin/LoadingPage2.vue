@@ -10,13 +10,15 @@
       </div>
     </div>
     <div class="choose-theme">
-      <div class="theme theme1" @click="chooseTheme('#ffad00')"></div>
+      <!-- <div class="theme theme1" @click="chooseTheme('#ffad00')"></div>
       <div class="theme theme2" @click="chooseTheme('#01c5c4')"></div>
       <div class="theme theme3" @click="chooseTheme('#ffa5a5')"></div>
       <div class="theme theme4" @click="chooseTheme('#d789d7')"></div>
       <div class="theme theme5" @click="chooseTheme('#f09ae9')"></div>
       <div class="theme theme6" @click="chooseTheme('#e7305b')"></div>
-      <div class="theme theme7" @click="chooseTheme('#303960')"></div>
+      <div class="theme theme7" @click="chooseTheme('#303960')"></div> -->
+      <h3 class="loading-text" v-if="$frontmatter.home">6666{{$site.title || $localeConfig.title}}</h3>
+      <p class="loading-text" v-if="$frontmatter.home">{{$site.description || $localeConfig.description}}</p>
     </div>
   </div>
 </template>
@@ -24,10 +26,29 @@
 export default {
   methods: {
     // page2
-    chooseTheme (color) {
+    chooseTheme () {
+      let color = this.getOneColor()
       const root = document.documentElement
       root.style.setProperty('--golden-glow', color)
+    },
+    getOneColor: function () {
+      var tagColorArr = [
+        '#ffad00',
+        '#01c5c4',
+        '#ffa5a5',
+        '#d789d7',
+        '#f09ae9',
+        '#e7305b',
+        '#303960'
+      ]
+      var index = Math.floor(Math.random() * tagColorArr.length)
+      return tagColorArr[index]
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      setInterval(this.chooseTheme, 2500)
+    })
   }
 }
 </script>
@@ -41,6 +62,11 @@ export default {
   width: 100vw;
   background: #fff;
   background: var(--background-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   .rings {
     position: relative;
@@ -55,26 +81,26 @@ export default {
     }
 
     .ring1 {
-      height: 28rem;
-      width: 28rem;
+      height: 14rem;
+      width: 14rem;
       animation: glow1 2.5s infinite;
     }
 
     .ring2 {
-      height: 20rem;
-      width: 20rem;
+      height: 10rem;
+      width: 10rem;
       animation: glow2 2.5s infinite;
     }
 
     .ring3 {
-      height: 12rem;
-      width: 12rem;
+      height: 6rem;
+      width: 6rem;
       animation: glow3 2.5s infinite;
     }
 
     .ring4 {
-      height: 5rem;
-      width: 5rem;
+      height: 2rem;
+      width: 2rem;
       animation: glow4 2.5s infinite;
     }
   }

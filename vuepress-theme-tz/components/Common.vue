@@ -1,17 +1,13 @@
 <template>
-  <div
-       class="theme-container"
-       :class="pageClasses"
-       @touchstart="onTouchStart"
-       @touchend="onTouchEnd">
-    <div v-if="!absoluteEncryption">
+  <div class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
+    <div>
       <transition name="fade">
-        <LoadingPage v-show="firstLoad" class="loading-wrapper" />
+        <LoadingPage class="loading-wrapper" />
       </transition>
-      <transition name="fade">
+      <!-- <transition name="fade">
         <Password v-show="!isHasKey" class="password-wrapper-out" key="out" />
-      </transition>
-      <div :class="{ 'hide': firstLoad || !isHasKey }">
+      </transition> -->
+      <!-- <div :class="{ 'hide': firstLoad || !isHasKey }">
         <div v-if="all" class="wrapper-main" :style="{
           backgroundImage: 'url('+cover+')',
           backgroundPositionX: 'center',
@@ -80,9 +76,9 @@
             <slot></slot>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
-    <div v-else>
+    <!-- <div v-else>
       <transition name="fade">
         <LoadingPage v-if="firstLoad" />
         <Password v-else-if="!isHasKey" />
@@ -112,7 +108,7 @@
           </div>
         </div>
       </transition>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -123,7 +119,7 @@ import PersonalInfo from '@theme/components/PersonalInfo'
 import Password from '@theme/components/Password'
 import { setTimeout } from 'timers'
 import moduleTransitonMixin from '@theme/mixins/moduleTransiton'
-import {circleMagic, randomNumOfLength} from '@theme/helpers/utils'
+import { circleMagic, randomNumOfLength } from '@theme/helpers/utils'
 
 export default {
   mixins: [moduleTransitonMixin],
@@ -199,18 +195,18 @@ export default {
         userPageClass
       ]
     },
-    cover() {
+    cover () {
       const number = randomNumOfLength(this.$themeConfig.covers.length)
       return (this.$themeConfig.covers
-      && this.$themeConfig.covers[number])
-      || "/picture/325105.jpg"
+        && this.$themeConfig.covers[number])
+        || "/picture/325105.jpg"
     },
-    pageCover() {
+    pageCover () {
       const number = randomNumOfLength(this.$themeConfig.covers.length)
       return this.$page.frontmatter.cover
-       || (this.$themeConfig.covers
-      && this.$themeConfig.covers[number])
-       || "/picture/325105.jpg"
+        || (this.$themeConfig.covers
+          && this.$themeConfig.covers[number])
+        || "/picture/325105.jpg"
     },
   },
 
@@ -222,13 +218,13 @@ export default {
     this.hasKey()
     this.hasPageKey()
     this.handleLoading()
-    circleMagic({
-      radius: 15,
-      density: 0.3,
-      color: 'rgba(255,255,255, .4)',
-      // color: 'random',
-      clearOffset: 0.2
-    })
+    // circleMagic({
+    //   radius: 15,
+    //   density: 0.3,
+    //   color: 'rgba(255,255,255, .4)',
+    //   // color: 'random',
+    //   clearOffset: 0.2
+    // })
   },
 
   methods: {
