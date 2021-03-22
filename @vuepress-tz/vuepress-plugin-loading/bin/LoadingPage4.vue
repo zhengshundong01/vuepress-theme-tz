@@ -1,5 +1,5 @@
 <template>
-  <div class="loading-page-4 panel">
+  <div class="loading-page-4">
     <div class="loading-text">
       <span class="loading-text-words">L</span>
       <span class="loading-text-words">O</span>
@@ -11,14 +11,19 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: 'LoadingPage4'
+}
+</script>
 <style lang="stylus" scoped>
 @import url('https://fonts.googleapis.com/css?family=Quattrocento + Sans');
 
 .loading-page-4 {
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   background: #000;
   z-index: 9999;
 }

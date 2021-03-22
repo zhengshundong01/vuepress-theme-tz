@@ -1,5 +1,7 @@
 <template>
   <div class="loading-page-2">
+    <h3 class="loading-text" v-if="$frontmatter.home">{{$site.title || $localeConfig.title}}</h3>
+    <p class="loading-text" v-if="$frontmatter.home">{{$site.description || $localeConfig.description}}</p>
     <div class="rings">
       <div class="ring ring1">
         <div class="ring ring2">
@@ -9,26 +11,28 @@
         </div>
       </div>
     </div>
-    <div class="choose-theme">
-      <!-- <div class="theme theme1" @click="chooseTheme('#ffad00')"></div>
+    <!-- <div class="choose-theme"> -->
+    <!-- <div class="theme theme1" @click="chooseTheme('#ffad00')"></div>
       <div class="theme theme2" @click="chooseTheme('#01c5c4')"></div>
       <div class="theme theme3" @click="chooseTheme('#ffa5a5')"></div>
       <div class="theme theme4" @click="chooseTheme('#d789d7')"></div>
       <div class="theme theme5" @click="chooseTheme('#f09ae9')"></div>
       <div class="theme theme6" @click="chooseTheme('#e7305b')"></div>
       <div class="theme theme7" @click="chooseTheme('#303960')"></div> -->
-      <h3 class="loading-text" v-if="$frontmatter.home">6666{{$site.title || $localeConfig.title}}</h3>
-      <p class="loading-text" v-if="$frontmatter.home">{{$site.description || $localeConfig.description}}</p>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 <script>
 export default {
+  name: 'LoadingPage2',
   methods: {
     // page2
     chooseTheme () {
       let color = this.getOneColor()
       const root = document.documentElement
+      if (!root) {
+        return
+      }
       root.style.setProperty('--golden-glow', color)
     },
     getOneColor: function () {
@@ -47,6 +51,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
+      this.chooseTheme()
       setInterval(this.chooseTheme, 2500)
     })
   }

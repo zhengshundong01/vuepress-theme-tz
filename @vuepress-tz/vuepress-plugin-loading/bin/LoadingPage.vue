@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <LoadingPage2></LoadingPage2>
-  </div>
+  <component :is="component"></component>
 </template>
 
 <script>
-import LoadingPage1 from './LoadingPage1.vue'
-import LoadingPage2 from './LoadingPage2.vue'
-import LoadingPage3 from './LoadingPage3.vue'
-import LoadingPage4 from './LoadingPage4.vue'
 export default {
+  name: 'LoadingPage',
   components: {
-    LoadingPage1,
-    LoadingPage2,
-    LoadingPage3,
-    LoadingPage4
+    LoadingPage1: () => import('./LoadingPage1'),
+    LoadingPage2: () => import('./LoadingPage2'),
+    LoadingPage3: () => import('./LoadingPage3'),
+    LoadingPage4: () => import('./LoadingPage4')
+  },
+  computed: {
+    component () {
+      const type = this.$themeConfig.loadingType || '1'
+      return `LoadingPage${type}`
+    }
   }
 }
 </script>
