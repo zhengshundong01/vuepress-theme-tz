@@ -127,6 +127,12 @@ module.exports = {
     loadingType: 1
   },
   plugins: [
+    require.resolve("../../@vuepress-tz/vuepress-plugin-autobar/lib/index.js", [
+      "autobar",
+      {
+        setHomepage: "top"
+      },
+    ]),
     ["@vuepress-reco/vuepress-plugin-screenfull"],
     [
       "dynamic-title",
