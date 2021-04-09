@@ -18,12 +18,16 @@ export default {
   components: { HomeBlog, Home, Page, Common, Footer },
   computed: {
     sidebarItems () {
-      return resolveSidebarItems(
+      let items = resolveSidebarItems(
         this.$page,
         this.$page.regularPath,
         this.$site,
         this.$localePath
       )
+      if (items.length > 0) {
+        return items
+      }
+      return this.$themeConfig.sidebarItems
     },
     homeCom () {
       const { type } = this.$themeConfig

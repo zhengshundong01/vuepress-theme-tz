@@ -18,7 +18,7 @@ module.exports = {
     type: 'blog',
     authorAvatar: '/picture/avator.jpg',
     subSidebar: false,
-    sidebar: false,
+    sidebar: true,
     // 备案
     record: '黔ICP备20000712号-1',
     recordLink: 'http://www.beian.miit.gov.cn/',
@@ -128,7 +128,7 @@ module.exports = {
   },
   plugins: [
     require.resolve("../../@vuepress-tz/vuepress-plugin-autobar/lib/index.js", [
-      "autobar",
+      'autobar',
       {
         setHomepage: "top"
       },

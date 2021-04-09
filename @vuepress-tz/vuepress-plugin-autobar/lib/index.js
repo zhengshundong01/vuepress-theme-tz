@@ -313,7 +313,7 @@ module.exports = (options, ctx) => {
         themeConfig.nav = nav
       }
 
-      themeConfig.sidebar = sidebar;
+      themeConfig.sidebarItems = sidebar;
       return {nav, sidebar};
     }
   }

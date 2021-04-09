@@ -29,7 +29,8 @@
 
           <Sidebar
                    :items="sidebarItems"
-                   @toggle-sidebar="toggleSidebar">
+                   @toggle-sidebar="toggleSidebar"
+                   v-if="$themeConfig.sidebar !== false">
             <template slot="top">
               <PersonalInfo />
             </template>
@@ -63,7 +64,8 @@
 
             <Sidebar
                      :items="sidebarItems"
-                     @toggle-sidebar="toggleSidebar">
+                     @toggle-sidebar="toggleSidebar"
+                     v-if="$themeConfig.sidebar !== false">
               <template slot="top">
                 <PersonalInfo />
               </template>
@@ -97,7 +99,8 @@
 
           <Sidebar
                    :items="sidebarItems"
-                   @toggle-sidebar="toggleSidebar">
+                   @toggle-sidebar="toggleSidebar"
+                   v-if="$themeConfig.sidebar !== false">
             <template slot="top">
               <PersonalInfo />
             </template>
@@ -229,6 +232,8 @@ export default {
       // color: 'random',
       clearOffset: 0.2
     })
+
+    console.log(this.$themeConfig.nav)
   },
 
   methods: {
@@ -343,6 +348,7 @@ export default {
 
 .wrapper-main {
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .wrapper-page {

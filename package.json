@@ -29,6 +29,7 @@
     "vuepress-plugin-dynamic-title": "^1.0.0",
     "vuepress-plugin-meting": "0.2.0",
     "vuepress-plugin-ribbon-animation": "^1.1.3",
+    "@vuepress-tz/vuepress-plugin-autobar": "file:@vuepress-tz/vuepress-plugin-autobar/",
 
     "glob": "^7.1.4",
     "lodash.escaperegexp": "^4.1.2",
